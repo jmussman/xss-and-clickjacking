@@ -144,7 +144,7 @@ The Express server serves the same web application up on two ports, so that in e
 Since I give stuff away for free, and if you would like to keep seeing more stuff like this, then please consider
 contributing $10 to *Joel's Coffee Fund* at my company, **Smallrock Internet**, to help keep stuff coming :)<br />
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XPUGVGZZ8RUAA)
+[![Donate](,/resources/graphics/Donate-Paypal.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XPUGVGZZ8RUAA)
 
 ## Contributing to the Project
 
@@ -167,6 +167,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Here is a link to a somewhat confusing document at the Mozilla Developer Network that explains what is allowed, but pretty much anything that is embedded has the run of the place: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy.
 * OWASP does a great job of defining the terms, and this new attempt at separating different types of XSS is a good place to start: https://www.owasp.org/index.php/Types_of_Cross-Site_Scripting.
 * Inspiration: I was asked about delivering a Secure Java Programming course for [Judge Learning Solutions](https://www.judge.com/services/learning-solutions) and [nTier Training](https://ntiertraining.com), and this is a piece of what came out of that. 
-
-<span style="font-size: 8pt;">The logo image is borrowed from Google at https://commons.wikimedia.org/wiki/File:Spy_vs._Spy_Logotipe.png and is in the public domain.<br/>
-The overlay image is licensed under creative-commons from </span>
+* The logo image is borrowed from Google at https://commons.wikimedia.org/wiki/File:Spy_vs._Spy_Logotipe.png and is declared there to be in the public domain.
+* The clickjacking overlay image is licensed under [Creative Commons Attribution-ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/) and came from OWASP at https://www.owasp.org/index.php/File:Clickjacking_description.png.
