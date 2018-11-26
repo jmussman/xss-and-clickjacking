@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <!--    index.html
+            Copyright © 2018 Joel Mussman. All rights reserved.
+    -->
+    <head>
+        <title>Spy vs Spy: XSS and Clickjacking</title>
+        <link rel="stylesheet" type="text/css" href="assets/styles/site.css" />
+        <script src="assets/scripts/index.js"></script>
+    </head>
+    <body>
+        <div class="content">
+            <img src="assets/images/Spy_vs._Spy_Logotipe.png" />
+
+            <h1>Cross-Site Scripting and Clickjacking</h1>
+
+            <p>Cross-site scripting, and the same-origin policy, confuses folks.
+                Same-origin sounds like if scripts are loaded from different places then there should be restrictions on what they can do.
+                But same-origin does not affect *any* scripts that a document loads.
+                It turns out that all the scripts a document loads, either embedded with a script tag or loaded via AJAX from anyplace
+                on the network, all share the same JavaScript and DOM environments in the browser.
+                And, what about CORS?
+                Well, CORS protects a server, not the client.
+                Clients are blocked from contacting random web services, unless the server contacted passes CORS headers to allow the connection.
+                When it does, there is nothing stopping the client from communicating!</p>
+
+            <p>So, what does <i>same-origin</i> really accomplish?
+                Only one thing: if a document loads another document from a <i>different</i> site into a frame or window, then the browser blocks the code in the
+                first document from accessing the JavaScript and DOM environment in the frame or window containing the second document!
+                Who does same-origin protect?
+                The user, not the application!
+                And, the application code cannot expect it to work.
+            </p>
+
+            <h4>Example 1 - Embedded IFrame</h4>
+
+            <p>This is an embedded login page inside an iframe.
+                The password is the word "secret".
+                If you click the login button, the event handler set by the JavaScript in the iframe will run.
+                Look at the console to see that it logs the content of the two fields.
+                And that the login.js script is generating that output:</p>
+            <iframe class="login-frame" id="login-frame-1" src="http://localhost:3000/login.html"></iframe>
+
+            <h4>Example 2 - Clickjacking and Overlays</h4>
+
+            <p>This is the same embedded login page inside an iframe.
+                This time it is overlaid with what should be a transparent div and button directly over part of the form, but
+                the div and button are opaque gray and have a blue border so they can be identified in the example.
+                If you click the login button you are really clicking the button that overlays it.
+                The event handler set by the JavaScript in main document will run, picking up the values from the form
+                and writing them to the console.
+                Then it will invoke the click method of the button in the iframe, so the document there works as expected.
+                This is <i>clickjacking!</i></p>
+            <iframe class="login-frame" id="login-frame-2" src="http://localhost:3000/login.html"></iframe>
+            <div id="iframe-overlay-2" class="overlay">
+                <button id="button-overlay-2" class="overlay"></button>
+            </div>
+
+            <h4>Example 3 - Clickjacking without the Overlay</h4>
+
+            <p>Clickjacking can take place without the overlay too!
+                Although, that may not be in the true spirit of the definition of clickjacking.
+                All we have to do is add another event handler to the button in the document in the frame, and we can
+                hijack the information there!
+                The login.js script click handler runs before the index.js click handler, because index.js added it after login.js.</p>
+            <iframe class="login-frame" id="login-frame-3" src="http://localhost:3000/login.html"></iframe>
+            
+            <h4>Example 4 - XSS Blocked by the Same-Origin Policy!</h4>
+
+            <p>This is the same embedded login page inside an iframe, but now it is loaded from a different address.
+                It is also overlaid with the div and button directly over the form.
+                If you click the login button you are really clicking the button that overlays it, but this time
+                it fails to get the values from the document in the iframe, or simulate the button click,
+                because the page in the div is loaded from a different origin!
+                The same thing will happen if we just tried to hijack the button directly.</p>
+            <p>So, the whole point of the same-origin policy is to prevent me from visiting a page that launches
+                another page (like my bank account), and tricks me into entering secret information in a form
+                while it hijacks that information behind the scenes.
+                Important: same-origin <i>helps</i> prevent the <i>user</i> from XSS and clickjacking, it does not do anything
+                to project the <i>application</i>.</p>
+            <iframe class="login-frame" id="login-frame-4" src="http://localhost:3001/login.html"></iframe>
+            <div id="iframe-overlay-4" class="overlay">
+                <button id="button-overlay-4" class="overlay"></button>
+            </div>
+
+            <div class="footer">
+                <span class="copyright">Copyright &copy; 2018 Joel Mussman. All rights reserved. This project is licensed under the <a href="https://opensource.org/licenses/MIT">MIT license</a> and may be copied, extended, or used under the restrictions thereof.<br /></span>
+                <span class="attribution">The logo image is borrowed from Google at https://commons.wikimedia.org/wiki/File:Spy_vs._Spy_Logotipe.png and is in the public domain.</span>
+            </div>
+        </div>
+    </body>
+</html>

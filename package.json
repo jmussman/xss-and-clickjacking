@@ -1,0 +1,12 @@
+{
+    "name": "xss-project",
+    "description": "Cross-site scripting and clickjack example project",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "express": "^4.16.4"
+    },
+    "scripts": {
+        "start": "node ./src/server.js"
+    }
+}
