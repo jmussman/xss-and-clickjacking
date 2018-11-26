@@ -144,7 +144,7 @@ The Express server serves the same web application up on two ports, so that in e
 Since I give stuff away for free, and if you would like to keep seeing more stuff like this, then please consider
 contributing $10 to *Joel's Coffee Fund* at my company, **Smallrock Internet**, to help keep stuff coming :)<br />
 
-[![Donate](,/resources/graphics/Donate-Paypal.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XPUGVGZZ8RUAA)
+[![Donate](resources/graphics/Donate-Paypal.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XPUGVGZZ8RUAA)
 
 ## Contributing to the Project
 
