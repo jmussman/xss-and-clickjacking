@@ -15,7 +15,7 @@ The first example is a login form loaded by the index document, from the same so
 This would work the same in a popup window, although many browsers now block popup windows, partially because of these exploits.
 The login document has JavaScript functionality that shows the contents of the *username* and *password* fields when the *login* button is clicked, by writing those values to the browser console.
 
-<img align="right" src="./resources/graphics/Clickjacking_description.png" style="width: 300px;" />
+<img align="right" width="300" src="./resources/graphics/Clickjacking_description.png" />
 
 ### Clickjacking
 
@@ -141,18 +141,12 @@ The Express server serves the same web application up on two ports, so that in e
 
 ## Support
 
-Since I am giving this away for free, if you would like to contribute to supporting projects like this then consider
-donating to my personal coffee fund to help keep that going :) 
+Since I give stuff away for free, and if you would like to keep seeing more stuff like this, then please consider
+contributing $10 to *Joel's Coffee Fund* at **Smallrock Internet** to help keep stuff coming :)<br />
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick" />
-<input type="hidden" name="hosted_button_id" value="UNGKX56XZYSHG" />
-<input type="image" src="./resources/graphics/Donate-Paypal.svg" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-</form>
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XPUGVGZZ8RUAA)
 
-
-## Contributing
+## Contributing to the Project
 
 Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
